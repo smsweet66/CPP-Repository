@@ -6,15 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/CPP repo/CPP-Repository/ExtendedMatrix.cpp
-pch.hpp
-/mnt/d/CPP repo/CPP-Repository/pch.hpp
-
 /mnt/d/CPP repo/CPP-Repository/ExtendedMatrix.hpp
-pch.hpp
-/mnt/d/CPP repo/CPP-Repository/pch.hpp
-
-/mnt/d/CPP repo/CPP-Repository/Logger.cpp
 pch.hpp
 /mnt/d/CPP repo/CPP-Repository/pch.hpp
 
@@ -22,15 +14,7 @@ pch.hpp
 pch.hpp
 /mnt/d/CPP repo/CPP-Repository/pch.hpp
 
-/mnt/d/CPP repo/CPP-Repository/Matrix.cpp
-pch.hpp
-/mnt/d/CPP repo/CPP-Repository/pch.hpp
-
 /mnt/d/CPP repo/CPP-Repository/Matrix.hpp
-pch.hpp
-/mnt/d/CPP repo/CPP-Repository/pch.hpp
-
-/mnt/d/CPP repo/CPP-Repository/PointCharge.cpp
 pch.hpp
 /mnt/d/CPP repo/CPP-Repository/pch.hpp
 
@@ -38,15 +22,7 @@ pch.hpp
 pch.hpp
 /mnt/d/CPP repo/CPP-Repository/pch.hpp
 
-/mnt/d/CPP repo/CPP-Repository/Sort.cpp
-pch.hpp
-/mnt/d/CPP repo/CPP-Repository/pch.hpp
-
 /mnt/d/CPP repo/CPP-Repository/Sort.hpp
-
-/mnt/d/CPP repo/CPP-Repository/Vector.cpp
-pch.hpp
-/mnt/d/CPP repo/CPP-Repository/pch.hpp
 
 /mnt/d/CPP repo/CPP-Repository/Vector.hpp
 pch.hpp
@@ -55,8 +31,6 @@ pch.hpp
 /mnt/d/CPP repo/CPP-Repository/cmake-build-debug/CMakeFiles/CPP-Repository.dir/cmake_pch.hxx
 /mnt/d/CPP repo/CPP-Repository/pch.hpp
 -
-
-/mnt/d/CPP repo/CPP-Repository/cmake-build-debug/CMakeFiles/CPP-Repository.dir/cmake_pch.hxx.cxx
 
 /mnt/d/CPP repo/CPP-Repository/main.cpp
 pch.hpp
@@ -95,10 +69,6 @@ PointCharge.hpp
 /mnt/d/CPP repo/CPP-Repository/PointCharge.hpp
 smartMutex.hpp
 /mnt/d/CPP repo/CPP-Repository/smartMutex.hpp
-
-/mnt/d/CPP repo/CPP-Repository/smartMutex.cpp
-pch.hpp
-/mnt/d/CPP repo/CPP-Repository/pch.hpp
 
 /mnt/d/CPP repo/CPP-Repository/smartMutex.hpp
 pch.hpp

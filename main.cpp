@@ -28,8 +28,8 @@ int main()
 
 	Vector totalForce;
 
-	for(int i=0; i<18; i++)
-		totalForce = totalForce + charges[i].force(PointCharge(8*0.0001, 1.85, 0));
+	for(const auto & charge : charges)
+		totalForce = totalForce + charge.force(PointCharge(8*0.0001, 1.85, 0));
 
 	print(totalForce.magnitude());
 
