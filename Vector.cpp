@@ -2,6 +2,8 @@
 
 Logger vecLog("Vector");
 
+int Vector::numVectors = 0;
+
 /**
  * Calculates the cross product of two vectors
  */
