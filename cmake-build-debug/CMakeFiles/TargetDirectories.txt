@@ -1,3 +1,0 @@
-/mnt/d/CPP repo/CPP-Repository/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/d/CPP repo/CPP-Repository/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/d/CPP repo/CPP-Repository/cmake-build-debug/CMakeFiles/CPP-Repository.dir
