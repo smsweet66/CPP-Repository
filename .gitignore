@@ -31,5 +31,7 @@
 *.out
 *.app
 
+cmake-build-debug
+
 # main file
 main.cpp
