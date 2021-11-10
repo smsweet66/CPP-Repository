@@ -24,7 +24,7 @@ public:
 			solution[i] = 0;
 	}
 
-	ExtendedMatrix(const Matrix& b)
+	explicit ExtendedMatrix(const Matrix& b)
 	: Matrix(b)
 	{
 		solution = new double[numRows];
@@ -56,9 +56,9 @@ public:
 			solution[i] = b.solution[i];
 	}
 
-	ExtendedMatrix operator=(const Matrix& b);
+	ExtendedMatrix& operator=(const Matrix& b);
 
-	ExtendedMatrix operator=(const ExtendedMatrix& b);
+	ExtendedMatrix& operator=(const ExtendedMatrix& b);
 
 	~ExtendedMatrix()
 	{ delete[] solution; }

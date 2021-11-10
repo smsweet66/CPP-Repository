@@ -9,10 +9,10 @@ Matrix ExtendedMatrix::solutionSet() const
 	for(int i=0; i<numRows; i++)
 	{
 		int j = i;
-		while(abs(reduced[i*numCols + j] - 1) > 0.000001 && j<numCols) //searching for pivot in row
+		while(std::abs(reduced[i*numCols + j] - 1) > 0.000001 && j<numCols) //searching for pivot in row
 			j++;
 
-		if(j >= reduced.numCols && abs(reduced.solution[j]) > 0.000001) //no solution
+		if(j >= reduced.numCols && std::abs(reduced.solution[j]) > 0.000001) //no solution
 		{
 			extendedMatrixLog.warn("This extended matrix has no solution");
 			return NULL;
@@ -27,7 +27,7 @@ Matrix ExtendedMatrix::solutionSet() const
 	for(int i=0; i<cols.size(); i++) //iterating through pivot columns
 	{
 		int j=0;
-		while(j <= cols[i] && abs(reduced[j*numCols + cols[i]] - 1) > 0.000001) //finding row of pivot
+		while(j <= cols[i] && std::abs(reduced[j*numCols + cols[i]] - 1) > 0.000001) //finding row of pivot
 			j++;
 
 		temp[cols[i]*(1 + numCols - cols.size())] = reduced.solution[j];
@@ -76,12 +76,12 @@ ExtendedMatrix ExtendedMatrix::extendedRREF() const
 	int pivotCol = 0;
 	for(int currRow=0; currRow<numRows; currRow++) //iteration through rows
 	{
-		if(abs(copy[currRow*numCols + pivotCol]) < 0.000001) //current pivot is unusable
+		if(std::abs(copy[currRow*numCols + pivotCol]) < 0.000001) //current pivot is unusable
 		{
 			bool pivotFound = false;
 			for(int i=currRow; i<numRows; i++) //searches for better pivot
 			{
-				if(abs(copy[i*numCols + pivotCol]) > 0.000001) //suitable pivot found
+				if(std::abs(copy[i*numCols + pivotCol]) > 0.000001) //suitable pivot found
 				{
 					pivotFound = true;
 					for(int j = pivotCol; j < numCols; j++)
@@ -128,14 +128,14 @@ ExtendedMatrix ExtendedMatrix::extendedRREF() const
 	return copy;
 }
 
-ExtendedMatrix ExtendedMatrix::operator=(const Matrix& b)
+ExtendedMatrix& ExtendedMatrix::operator=(const Matrix& b)
 {
 	ExtendedMatrix temp(b);
 	*this = temp;
 	return *this;
 }
 
-ExtendedMatrix ExtendedMatrix::operator=(const ExtendedMatrix& b)
+ExtendedMatrix& ExtendedMatrix::operator=(const ExtendedMatrix& b)
 {
 	delete[] matrix;
 	delete[] solution;

@@ -157,7 +157,7 @@ Matrix Matrix::columnSpace() const
 	for (int i=0; i<numRows; i++)
 	{
 		int j = i;
-		while (abs(reduced[i * numCols + j] - 1) > 0.000001 && j < numCols) //searching for pivot in row
+		while (std::abs(reduced[i * numCols + j] - 1) > 0.000001 && j < numCols) //searching for pivot in row
 			j++;
 
 		if (j >= reduced.numCols) //no pivot in row
@@ -186,7 +186,7 @@ Matrix Matrix::nullSpace() const
 	for(int i=0; i<numRows; i++)
 	{
 		int j = i;
-		while(j < reduced.numCols && abs(reduced[i*numCols + j]) < 0.000001) //searching for pivot in row
+		while(j < reduced.numCols && std::abs(reduced[i*numCols + j]) < 0.000001) //searching for pivot in row
 			j++;
 
 		if(j >= reduced.numCols) //no pivot in row
@@ -244,12 +244,12 @@ Matrix Matrix::RREF() const
 	int pivotCol=0;
 	for(int currRow=0; pivotCol<numCols && currRow<numRows; currRow++) //iteration through rows
 	{
-		while(pivotCol < numCols && abs(copy[currRow*numCols + pivotCol]) < 0.000001) //current pivot is unusable
+		while(pivotCol < numCols && std::abs(copy[currRow*numCols + pivotCol]) < 0.000001) //current pivot is unusable
 		{
 			bool pivotFound = false;
 			for(int i=currRow+1; i<numRows; i++) //searches for better pivot
 			{
-				if(abs(copy[i*numCols + pivotCol]) > 0.000001) //suitable pivot found
+				if(std::abs(copy[i*numCols + pivotCol]) > 0.000001) //suitable pivot found
 				{
 					pivotFound = true;
 					for(int j=pivotCol; j<numCols; j++)

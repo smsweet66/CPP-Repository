@@ -1,6 +1,6 @@
 #include "pch.hpp"
 
-void Logger::log(const std::string msg, ...) const
+void Logger::log(std::string msg, ...) const
 {
 	std::cout << "\033[32m" << name << "------Log: ";
 
@@ -13,7 +13,7 @@ void Logger::log(const std::string msg, ...) const
 	std::cout << "\033[0m";  //Back to default color
 }
 
-void Logger::warn(const std::string msg, ...) const
+void Logger::warn(std::string msg, ...) const
 {
 	std::cout << "\033[0;33m" << name << "--Warning: ";
 
@@ -26,7 +26,7 @@ void Logger::warn(const std::string msg, ...) const
 	std::cout << "\033[0m";  //Back to default color
 }
 
-void Logger::error(const std::string msg, ...) const
+void Logger::error(std::string msg, ...) const
 {
 	std::cout << "\033[0;31m" << name << "----Error: ";
 
