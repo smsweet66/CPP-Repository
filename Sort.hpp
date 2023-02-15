@@ -1,32 +1,15 @@
 #pragma once
 
-class Sort
+/**
+ * sorts the values of an array of any type
+ * @param array the array to be sorted
+ * @param size the size of the matrix (or 1 plus the last index)
+ * @param low the first index of the section to be sorted (default 0)
+ */
+template <typename T>
+static void sort(T* array, int size, int low = 0)
 {
-public:
-	/**
-	 * sorts the values of an array of any type
-	 * @param array the array to be sorted
-	 * @param size the size of the matrix (or 1 plus the last index)
-	 * @param low the first index of the section to be sorted (default 0)
-	 */
-	template <typename T>
-	static void sort(T* array, int size, int low = 0)
-	{
-		if(low<size-1)
-		{
-			int middle = (size+low-1)/2;
-			sort(array, middle + 1, low);
-			sort(array, size, middle + 1);
-			merge(array, size-1, low);
-		}
-	}
-
-private:
-	/**
-	 * Merges the two sections of the array together in sorted order
-	 */
-	template<typename T>
-	static void merge(T *array, int high, int low)
+	static auto merge = [](T *array, int high, int low)
 	{
 		int arrayBLength = (high - low + 1);
 		T arrayB[arrayBLength];
@@ -90,5 +73,14 @@ private:
 				}
 			}
 		}
+	};
+
+	if(low<size-1)
+	{
+		int middle = (size+low-1)/2;
+		sort(array, middle + 1, low);
+		sort(array, size, middle + 1);
+		merge(array, size-1, low);
 	}
-};
+}
+

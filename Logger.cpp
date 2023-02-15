@@ -1,4 +1,6 @@
-#include "pch.hpp"
+#include <iostream>
+#include <cstdarg>
+#include "Logger.hpp"
 
 void Logger::log(std::string msg, ...) const
 {

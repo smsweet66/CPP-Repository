@@ -1,4 +1,7 @@
-#include "pch.hpp"
+#include <vector>
+#include <iomanip>
+#include "ExtendedMatrix.hpp"
+#include "Logger.hpp"
 
 Logger extendedMatrixLog("ExtendedMatrix");
 
@@ -15,7 +18,7 @@ Matrix ExtendedMatrix::solutionSet() const
 		if(j >= reduced.numCols && std::abs(reduced.solution[j]) > 0.000001) //no solution
 		{
 			extendedMatrixLog.warn("This extended matrix has no solution");
-			return NULL;
+			return Matrix(0);
 		}
 		else if(j >= reduced.numCols) //row has no pivot, but matrix is still consistant
 			continue;

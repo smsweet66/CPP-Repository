@@ -1,4 +1,5 @@
-#include "pch.hpp"
+#include "Vector.hpp"
+#include "Logger.hpp"
 
 Logger vecLog("Vector");
 

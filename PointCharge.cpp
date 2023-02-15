@@ -1,4 +1,5 @@
-#include "pch.hpp"
+#include <valarray>
+#include "PointCharge.hpp"
 
 Vector PointCharge::electricField(const Vector& point) const
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pch.hpp"
+#include <ostream>
 
 class Matrix
 {
@@ -13,7 +13,7 @@ public:
 			matrix[i] = (i/size == i%size ? 1 : 0);
 	}
 
-	Matrix(double* arr, int rows, int cols)
+	Matrix(const double* arr, int rows, int cols)
 	: numRows(rows), numCols(cols)
 	{
 		matrix = new double[rows*cols];
