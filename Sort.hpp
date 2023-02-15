@@ -9,7 +9,7 @@
 template <typename T>
 static void sort(T* array, int size, int low = 0)
 {
-	static auto merge = [](T *array, int high, int low)
+	static auto merge = [&](int high, int low)
 	{
 		int arrayBLength = (high - low + 1);
 		T arrayB[arrayBLength];
@@ -80,7 +80,7 @@ static void sort(T* array, int size, int low = 0)
 		int middle = (size+low-1)/2;
 		sort(array, middle + 1, low);
 		sort(array, size, middle + 1);
-		merge(array, size-1, low);
+		merge(size-1, low);
 	}
 }
 
