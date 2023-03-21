@@ -5,7 +5,7 @@
 
 Logger extendedMatrixLog("ExtendedMatrix");
 
-Matrix ExtendedMatrix::solutionSet() const
+std::optional<Matrix> ExtendedMatrix::solutionSet() const
 {
 	ExtendedMatrix reduced(this->extendedRREF());
 	std::vector<int> cols(0); //list of columns not to include
@@ -18,7 +18,7 @@ Matrix ExtendedMatrix::solutionSet() const
 		if(j >= reduced.numCols && std::abs(reduced.solution[j]) > 0.000001) //no solution
 		{
 			extendedMatrixLog.warn("This extended matrix has no solution");
-			return Matrix(0);
+			return std::nullopt;
 		}
 		else if(j >= reduced.numCols) //row has no pivot, but matrix is still consistant
 			continue;

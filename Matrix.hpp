@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ostream>
+#include <optional>
 
 class Matrix
 {
@@ -38,14 +39,14 @@ public:
 	 * Calculates the determinant of an nxn matrix
 	 * MATRIX MUST BE SQUARE
 	 */
-	double determinant() const;
+	std::optional<double> determinant() const;
 
 	/**
 	 * Calculates and returns the inverse of a matrix
 	 * returns NULL if the matrix has no inverse
 	 * MATRIX MUST BE SQUARE
 	 */
-	Matrix inverseMatrix() const;
+	std::optional<Matrix> inverseMatrix() const;
 
 	/**
 	 * Generates a transpose matrix (flips the rows and columns)
@@ -76,13 +77,13 @@ public:
 	/*
 	Extends the matrix and returns the result
 	*/
-	Matrix extendMatrix(const Matrix& b) const;
+	std::optional<Matrix> extendMatrix(const Matrix& b) const;
 
 	/**
 	 * Multiplies matrix1 by matrix2.
 	 * matrix1 must have the same number of columns as matrix2 has rows.
 	 */
-	Matrix operator*(const Matrix& b) const;
+	std::optional<Matrix> operator*(const Matrix& b) const;
 
 	/*
 	Multiplies each entry of the matrix by the scalar
@@ -93,7 +94,7 @@ public:
 	 * Adds two matrices together
 	 * Matrices must have the same size to be added
 	 */
-	Matrix operator+(const Matrix& b) const;
+    std::optional<Matrix> operator+(const Matrix& b) const;
 
 	/**
 	 * copies the contents of a different matrix into this one, freeing the previous memory

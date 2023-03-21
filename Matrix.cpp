@@ -21,12 +21,12 @@ int power(int num, int exp)
  * Calculates the determinant of an nxn matrix
  * MATRIX MUST BE SQUARE
  */
-double Matrix::determinant() const
+std::optional<double> Matrix::determinant() const
 {
 	if(numRows != numCols)
 	{
 		matrixLog.warn("The matrix is not square");
-		return 0;
+		return std::nullopt;
 	}
 
 	double determinant = 1;
@@ -76,12 +76,12 @@ double Matrix::determinant() const
  * returns 0 if the matrix has no inverse
  * MATRIX MUST BE SQUARE
  */
-Matrix Matrix::inverseMatrix() const
+std::optional<Matrix> Matrix::inverseMatrix() const
 {
 	if(numRows != numCols)
 	{
 		matrixLog.warn("Not a square matrix");
-		return *this;
+		return std::nullopt;
 	}
 
 	int size = numRows;
@@ -293,13 +293,14 @@ Matrix Matrix::RREF() const
 	return copy;
 }
 
-Matrix Matrix::extendMatrix(const Matrix& b) const
+std::optional<Matrix> Matrix::extendMatrix(const Matrix& b) const
 {
 	if(numRows != b.numRows)
 	{
 		matrixLog.warn("These matrices cannot be combined");
-		return *this;
+		return std::nullopt;
 	}
+
 	double* arr = new double[numRows * (numCols + b.numCols)];
 	for(int i = 0; i < numRows; i++)
 	{
@@ -315,7 +316,7 @@ Matrix Matrix::extendMatrix(const Matrix& b) const
 	return extended;
 }
 
-Matrix Matrix::operator*(const Matrix& b) const
+std::optional<Matrix> Matrix::operator*(const Matrix& b) const
 {
 	if(b.numRows != numCols)
 	{
@@ -352,7 +353,7 @@ Matrix Matrix::operator*(const double& scalar) const
  * Adds two matrices together
  * Matrices must have the same size to be added
  */
-Matrix Matrix::operator+(const Matrix& b) const
+std::optional<Matrix> Matrix::operator+(const Matrix& b) const
 {
 	if(numRows != b.numRows || numCols != b.numCols)
 	{
@@ -372,6 +373,9 @@ Matrix Matrix::operator+(const Matrix& b) const
 
 Matrix& Matrix::operator=(const Matrix &b)
 {
+    if(this == &b)
+        return *this;
+
 	delete[] matrix;
 	matrix = new double[numRows*numCols];
 	for(int i=0; i<numRows*numCols; i++)
@@ -381,7 +385,13 @@ Matrix& Matrix::operator=(const Matrix &b)
 }
 
 Matrix& Matrix::operator*=(const Matrix& b)
-{ return *this = *this * b; }
+{
+    auto result = *this * b;
+    if(result)
+        *this = result.value();
+
+    return *this;
+}
 
 /**
  * checks if all the matrices are equivalent

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <optional>
 #include "Matrix.hpp"
 
 class ExtendedMatrix : public Matrix
@@ -67,7 +68,7 @@ public:
 	solutionSet finds a matrix representing the solution set of the extended matrix
 	the columns are given as c + s1 + s2 + ... + sn where c is a constant vector and s1 - sn are free variables
 	*/
-	Matrix solutionSet() const;
+	std::optional<Matrix> solutionSet() const;
 
 	/*
 	calculates the reduced row echelon form of the matrix, also modifying the solutions to keep the matrices equal
